@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All cars!!!</title>
+</head>
+<body>
+  <h1>All of the cars</h1>
+  <% for(const carId in cars) { %>
+    <div style="border: 2px solid palevioletred;">
+      <p>color: <%= cars[carId].color %></p>
+      <p>number of wheels: <%= cars[carId].numWheels %></p>
+      <a href="/cars/<%= carId %>">see details</a>
+      <form method="POST" action="/cars/<%= carId %>/delete">
+        <button type="submit">delete this car</button>
+      </form>
+    </div>
+  <% } %>
+
+  <h2>create a new car</h2>
+  <form method="POST" action="/cars">
+    <label>color of car</label>
+    <input name="color">
+    <br>
+    <label>number of wheels</label>
+    <input name="numWheels">
+    <br>
+    <button type="submit">Create new car</button>
+    
+
+  </form>
+  
+</body>
+</html>
